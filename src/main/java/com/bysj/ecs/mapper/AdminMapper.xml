@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 指向当前的Mapper接口 -->
+<mapper namespace="com.bysj.ecs.mapper.AdminMapper">
+
+<resultMap type="um" id="userMap">
+		<id property="user_id" column="user_id" />
+		<result column="user_name" property="user_name" />
+		<result column="user_psw" property="user_psw" />
+		<result column="user_time" property="user_time" />
+		
+		<association property="type" javaType="ut">
+			<id column="id" property="id" />
+			<result column="typeName" property="typeName" />
+		</association>
+	</resultMap>	
+	
+<select id="selectUser" resultMap="userMap">
+	    select * from t_user,t_type where t_user.user_type_id=t_type.id
+</select>
+    
+
+	
+
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 设置日志以LOG4J进行显示 -->
+	 <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+    
+    <!-- 设置类的别名 -->
+    <typeAliases>
+        
+		<typeAlias type="com.bysj.ecs.pojo.UserInfo" alias="u"/>
+		<typeAlias type="com.bysj.ecs.pojo.User" alias="um"/>
+		<typeAlias type="com.bysj.ecs.pojo.UserType" alias="ut"/>
+    </typeAliases>
+    
+    
+   
+    <!-- 引入 pageHelper插件 -->
+    <plugins>  
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">  
+            <!--reasonable：分页合理化参数，默认值为false。
+                当该参数设置为 true 时，pageNum<=0 时会查询第一页，
+                pageNum>pages（超过总数时），会查询最后一页。
+                默认false 时，直接根据参数进行查询。-->  
+            <property name="reasonable" value="true"/>  
+        </plugin>  
+    </plugins> 
+
+</configuration>
